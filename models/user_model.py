@@ -1,6 +1,8 @@
 from fastjson_db import JsonModel
 from werkzeug.security import generate_password_hash, check_password_hash
+from dataclasses import dataclass
 
+@dataclass
 class User(JsonModel):
     _id: int | None
     name: str = ""
