@@ -17,3 +17,7 @@ from fastjson-db.foreignkey import ForeignKey
 ```
 
 O que é desagradável considerando que ForeignKey é o único módulo naquele arquivo.
+
+## Nullable e Unique ##
+
+Garantir novos fields (nullable e unique, pra evitar que tenham dois usuários com mesmo nome por exemplo)
