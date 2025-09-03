@@ -11,7 +11,7 @@ def createTopic():
         return jsonify({"error":"Invalid body"}), 400
     title, description = data.get("title"), data.get("description")
     if not title or not description:
-        return jsonify({"error":"TItle and description are obrigatory"}), 400
+        return jsonify({"error":"Title and description are obrigatory"}), 400
     
     user_id = get_jwt_identity()
     user = TABLE_REGISTRY[User].get_by("_id", user_id)
