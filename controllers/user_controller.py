@@ -50,4 +50,6 @@ def login():
         "message": "Login successful",
         "access_token": access_token
     })
-    
+
+def getById(id):
+    return TABLE_REGISTRY[User].get_by("_id", id)
