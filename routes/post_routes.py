@@ -5,8 +5,8 @@ post_bp = Blueprint("posts", __name__, url_prefix="/posts")
 
 @post_bp.route("/create")
 def create_route():
-    return createPost
+    return createPost()
 
 @post_bp.route("/<int:id>")
 def login_route():
-    return getAllTopicPosts
+    return getAllTopicPosts()

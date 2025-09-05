@@ -1,4 +1,4 @@
-from fastjson_db import TABLE_REGISTRY, JsonQuerier
+from fastjson_db import TABLE_REGISTRY, JsonQuerier, JsonTable
 from models import User
 from flask import request, jsonify
 from flask_jwt_extended import create_access_token
@@ -12,16 +12,17 @@ def createUser():
     if not username or not password:
         return jsonify({"error":"Username and password are obrigatory"}), 400
     
-    new_user = User(
-        name=username,
-        _password=password
-    )
+    new_user = User(_id=None, name=username)
+    new_user.password = password
     
+    print(asdict(new_user))
     TABLE_REGISTRY[User].insert(new_user)
+    print(TABLE_REGISTRY[User]._data_cache)
     TABLE_REGISTRY[User].flush()
     
     user_dict = asdict(new_user)
     user_dict.pop("_password", None)
+    user_dict.pop("_table", None)
     return jsonify({"user":user_dict})
 
 def login():

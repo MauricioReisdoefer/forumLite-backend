@@ -1,4 +1,4 @@
-fastjson-db==0.2.1
+fastjson-db==0.3.1
 flask==2.3.3
 flask-cors==4.0.0
 flask-jwt-extended==4.4.4
