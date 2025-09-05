@@ -34,7 +34,7 @@ def login():
     if not username or not password:
         return jsonify({"error": "Username and password are obligatory"}), 400
 
-    querier = JsonQuerier(User)
+    querier = JsonQuerier(TABLE_REGISTRY[User])
     user_list = querier.filter(name=username)
     
     if not user_list:

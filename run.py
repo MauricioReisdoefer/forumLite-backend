@@ -4,6 +4,7 @@ from routes.post_routes import post_bp
 from routes.topic_routes import topic_bp
 from routes.user_routes import user_bp
 from models.table_registry import certifyTableRegistry
+from flask_jwt_extended import JWTManager
 
 from dotenv import load_dotenv
 import os
@@ -14,6 +15,7 @@ def create_app():
     load_dotenv()
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY", "shit")
     
+    JWTManager(app=app)
     CORS(app)  
     
     app.register_blueprint(post_bp)
